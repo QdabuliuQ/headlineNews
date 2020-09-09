@@ -1,5 +1,7 @@
 # 05.supermallnew
 
+#  请求根路径：http://api.cms.liulongbin.top
+
 ## Project setup
 ```
 npm install

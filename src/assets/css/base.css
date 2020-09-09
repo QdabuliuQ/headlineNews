@@ -1,0 +1,10 @@
+/* 在全局定义css变量 */
+:root {
+    --bgc: #1296db;
+    --pane-padding: 5px 42px;
+}
+/* 清空边距 */
+*{
+    margin: 0;
+    padding: 0;
+}
