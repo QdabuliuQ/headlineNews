@@ -6,12 +6,13 @@
       </div>
       <div slot="center">新闻咨询</div>
     </news-list-navbar>
-    <bscroll
-     class="bscontent"
-      ref="bscroll"
-     :probeType="3">
-      <news-list-item class="listitem" :newslist="newslist"></news-list-item>
-    </bscroll>
+    <bscroll ref="newsScroll" class="itemcontent">
+      <!-- 监听图片加载事件 -->
+      <news-list-item 
+      class="newslistitem"
+      :newslist="newslist"
+      @newsImgLoad="newsImgLoad"></news-list-item>
+    </bscroll>  
   </div>
 </template>
 
@@ -27,14 +28,21 @@ export default {
     name: 'NewList',
     data () {
       return {
-        newslist: []  
+        newslist: []  // 新闻数据
       }
     },
     methods: {
+      // 返回上一页
       back(){
         // 通过 $router 调用 go 方法
         // -1 表示返回上一层
         this.$router.go(-1)
+      },
+
+      // 监听图片加载
+      newsImgLoad(){
+        // 通过 refs 获取 bscroll 调用 refresh 方法重新计算滚动高度
+        this.$refs.newsScroll.scroll.refresh();
       }
     },
     created () {
@@ -42,8 +50,11 @@ export default {
       getNewsList().then(res => {
         this.newslist = res.data.message
         console.log(this.newslist);
+        
       })
+      
     },
+    // 注册组件
     components: {
       newsListNavbar,
       newsListItem,
@@ -55,11 +66,17 @@ export default {
 <style scoped>
   .NewList{
     height: 100vh;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    /* overflow-x: hidden; */
   }
   .navbar{
     color:#fff;
+    position: relative;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: var(--bgc);
   }
   .left{
@@ -68,14 +85,19 @@ export default {
   .left img{
     margin-top: 11px;
   }
-  .bscontent{
+  .itemcontent{
     width: 100%;
-    height: calc(100% - 44px - 49px);
-    overflow-y: hidden;
-    /* position: relative;
+    /* height: calc(100% - 44px - 49px); */
+    position: absolute;
     top: 44px;
     left: 0;
     right: 0;
-    bottom: 49px; */
+    bottom: 49px;
+    
+  }
+  .listitem{
+    position: relative;
+    top: 44px;
+    background-color: #fff;
   }
 </style>

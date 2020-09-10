@@ -10,7 +10,7 @@
       </transition>
     </keep-alive>
     <!-- 底部导航栏 -->
-    <tabbar>
+    <tabbar class="tabbar">
       <tabbaritem path="/homepage" activeColor='#1296db'>
         <img slot="item-icon" src="~assets/img/tabbarImg/index.png" alt="">
         <img slot="item-icon-active" src="~assets/img/tabbarImg/indexactive.png" alt="">
@@ -53,7 +53,14 @@ export default {
 <style>
   @import '~assets/css/base.css';
   #app{
+    /* position: relative;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    top: 0; */
     overflow-x: hidden;
+    /* overflow: hidden; */
+    /* height: 100%; */
   }
   .item-text{
     font-size: 13px;
@@ -75,5 +82,11 @@ export default {
   .v-enter-active,.v-leave-active{
       /* 添加动画效果 */
       transition: all 0.2s linear;
+  }
+  .tabbar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 </style>

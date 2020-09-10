@@ -2,7 +2,9 @@
   <div class="NewsListItem">
       <div class="listItem" v-for="(item,index) in newslist" :key="index">
           <div class="context">
-              <img :src="item.img_url" alt="">
+              <img 
+              :src="item.img_url"
+              @load="imgLoad" alt="">
               <div class="ititle">
                  {{item.title}}
               </div>
@@ -12,7 +14,7 @@
                   <span class="clickCount">点击：{{item.click}}</span>
               </div>
           </div>
-      </div>
+      </div>   
   </div>
 </template>
 
@@ -20,14 +22,22 @@
 export default {
     name: 'NewsListItem',
     props: ['newslist'],     // 保存数据
+    methods: {
+        imgLoad(){
+            this.$emit('newsImgLoad')
+        }
+    }
 }
 
 </script>
 <style scoped>
     .NewsListItem{
         width: 100%;
+        /* position: relative;
+        bottom: 49px; */
     }
     .listItem{
+        position: relative;
         width: 95%;
         margin-left: 2.3%;
         height: 60px;
@@ -58,7 +68,6 @@ export default {
         font-size: 12px;
         color: var(--bgc);
         position: absolute;
-        
         bottom: 0;
         left: 55px;
     }

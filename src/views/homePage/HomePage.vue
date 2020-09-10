@@ -48,6 +48,7 @@ export default {
     height: 180px;
   }
   .navbar{
+    
     position: relative;
     top: 0;
     left: 0;
