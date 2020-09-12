@@ -25,11 +25,25 @@ export default {
         pullUpLoad:{
             type:Boolean,
             default:false
+        },
+        pullup: {
+            type: Boolean,
+            default: false
+        },
+        // 横向滚动
+        scrollX: {
+            type: Boolean,
+            default: false
+        },
+        // 纵向滚动
+        scrollY: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
         return {
-            scroll:null
+            scroll: {}
         }
     },
     methods: {
@@ -37,16 +51,38 @@ export default {
         // 获取滚动的高度
         getScrollY() {
             return this.scroll ? this.scroll.y : 0
+        },
+
+        initScroll() {
+            if(!this.$refs.wrapper){
+                return
+            }
+            this.scroll = new BScroll(this.$refs.wrapper,{
+                probeType: this.probeType,
+                // 上拉加载
+                pullUpLoad: this.pullUpLoad,
+                pullup: this.pullup,
+                scrollX: this.scrollX,
+                scrollY: this.scrollY,
+                click: true
+            })
+            this.scroll.on('scrollEnd',() => {
+                // 调用父组件的方法
+                this.$emit('scrollToEnd');
+                // 延时调用
+                setTimeout(() => {
+                    // 调用 finishPullUp 开始下一次事件触发
+                    // this.scroll.finishscrollEnd()
+                },2000)
+            })
         }
     },
     // mounted生命周期函数  dom元素被挂载
     mounted () {
-        this.scroll = new BScroll(this.$refs.wrapper,{
-            probeType: this.probeType,
-            // 上拉加载
-            pullUpLoad: this.pullUpLoad,
-            click: true
-        })
+        setTimeout(() => {
+            this.initScroll();
+        }, 20)
+
 
         // scrollTo 方法滚动到指定的位置
         // 参数1：x 目标x坐标
@@ -61,15 +97,7 @@ export default {
         // })
 
         // 监听上拉到底部事件
-        // this.scroll.on('pullingUp',() => {
-        //     // 调用父组件的方法
-        //     // this.$emit('homePullUp');
-        //     // // 延时调用
-        //     // setTimeout(() => {
-        //     //     // 调用 finishPullUp 开始下一次事件触发
-        //     //     this.scroll.finishPullUp()
-        //     // },2000)
-        // })
+        
     }
 }
 

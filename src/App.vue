@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <!-- 路由占位符 -->
     <!-- keep-alive 路由占位符区域不会被销毁 -->
     <keep-alive>
@@ -10,7 +9,7 @@
       </transition>
     </keep-alive>
     <!-- 底部导航栏 -->
-    <tabbar class="tabbar">
+    <tabbar class="apptabbar">
       <tabbaritem path="/homepage" activeColor='#1296db'>
         <img slot="item-icon" src="~assets/img/tabbarImg/index.png" alt="">
         <img slot="item-icon-active" src="~assets/img/tabbarImg/indexactive.png" alt="">
@@ -51,16 +50,14 @@ export default {
 </script>
 
 <style>
+  * { touch-action: pan-y; }
   @import '~assets/css/base.css';
   #app{
-    /* position: relative;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    top: 0; */
-    overflow-x: hidden;
-    /* overflow: hidden; */
-    /* height: 100%; */
+    width: 100%;
+  }
+  .apptabbar{
+    width: 100%;
+    z-index: 99;
   }
   .item-text{
     font-size: 13px;

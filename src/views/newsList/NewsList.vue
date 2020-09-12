@@ -12,13 +12,14 @@
       class="newslistitem"
       :newslist="newslist"
       @newsImgLoad="newsImgLoad"></news-list-item>
-    </bscroll>  
+    </bscroll> 
   </div>
 </template>
 
 <script>
 import newsListNavbar from 'components/common/navbar/navbar'  // 顶部导航栏
 import newsListItem from './childrenComps/NewsListItem'  // 新闻列表组件
+import newsInfo from './childrenComps/NewsInfo'  // 新闻详情组件
 
 import bscroll from 'components/common/bscroll/Bscroll'    // 滚动组件
 
@@ -49,8 +50,6 @@ export default {
       // 获取新闻列表数据
       getNewsList().then(res => {
         this.newslist = res.data.message
-        console.log(this.newslist);
-        
       })
       
     },
@@ -58,7 +57,8 @@ export default {
     components: {
       newsListNavbar,
       newsListItem,
-      bscroll
+      newsInfo,
+      bscroll,
     }
 }
 

@@ -1,19 +1,23 @@
 <template>
   <div class="NewsListItem">
       <div class="listItem" v-for="(item,index) in newslist" :key="index">
-          <div class="context">
-              <img 
-              :src="item.img_url"
-              @load="imgLoad" alt="">
-              <div class="ititle">
-                 {{item.title}}
+          <!-- 通过 router-link完成路由跳转 -->
+          <!-- to 跳转到指定的组件并且跟上对应的 id -->
+          <router-link :to="'newslist/newsinfo/' + item.id">
+              <div class="context">
+                <img 
+                :src="item.img_url"
+                @load="imgLoad" alt="">
+                <div class="ititle">
+                    {{item.title}}
+                </div>
+                <div class="bottontext">
+                    <!-- 过滤器格式化时间 -->
+                    <span>发表时间：{{item.add_time | getTime}}</span>
+                    <span class="clickCount">点击：{{item.click}}</span>
+                </div>
               </div>
-              <div class="bottontext">
-                  <!-- 过滤器格式化时间 -->
-                  <span>发表时间：{{item.add_time | getTime}}</span>
-                  <span class="clickCount">点击：{{item.click}}</span>
-              </div>
-          </div>
+          </router-link>
       </div>   
   </div>
 </template>
@@ -23,7 +27,9 @@ export default {
     name: 'NewsListItem',
     props: ['newslist'],     // 保存数据
     methods: {
+        // 监听图片加载
         imgLoad(){
+            // 调用父组件的方法
             this.$emit('newsImgLoad')
         }
     }
@@ -37,6 +43,8 @@ export default {
         bottom: 49px; */
     }
     .listItem{
+        text-decoration: none;
+        color: #000;
         position: relative;
         width: 95%;
         margin-left: 2.3%;
@@ -49,6 +57,8 @@ export default {
         height: 45px;
         position: relative;
         top: 7.5px;
+        text-decoration: none;
+        color: #000;
     }
     .context img{
         height: 45px;

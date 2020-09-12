@@ -19,7 +19,7 @@
           </div>
           <span>购物商城</span>    
       </div>
-      <div class="cellItem">
+      <div class="cellItem" @click="photo">
           <div>
               <img src="~assets/img/homePageImg/picture.png" alt="">
           </div>
@@ -44,8 +44,14 @@
 export default {
     name: 'homePageCell',
     methods: {
+        // 新闻组件路由跳转
         news(){
             this.$router.push('/homepage/newslist')
+        },
+
+        // 图片组件路由跳转
+        photo(){
+            this.$router.push('/homepage/photolist')
         }
     }
 }
