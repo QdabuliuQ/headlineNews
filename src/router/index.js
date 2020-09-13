@@ -9,20 +9,21 @@ const search = () => import('views/search/Search')  // 搜索组件
 
 const newsList = () => import('views/newsList/NewsList')  // 新闻组件
 const newsInfo = () => import('views/newsList/childrenComps/NewsInfo')  // 新闻详情组件
-const photoList = () => import('views/photoList/PhotoList')
+const photoList = () => import('views/photoList/PhotoList')  // 图片资讯组件
+const photoListInfo = () => import('views/photoList/childrenComps/PhotoListInfo') // 图片详情组件
 
 Vue.use(VueRouter)
 
 const routes = [
   // 路由重定向  默认显示 homepage 组件
   { path: '/', redirect: '/homepage' },
-  { path: '/homepage', component: homePage },
-  // 新闻资讯组件
+  { path: '/homepage', component: homePage }, // 新闻资讯组件
   { path: '/homepage/newslist', component: newsList },
-  // 图片资讯组件
-  { path: '/homepage/photolist', component: photoList },
-  // 新闻详情页  :id   获取id值
-  { path: '/homepage/newslist/newsInfo/:id', component: newsInfo },
+  { path: '/homepage/newslist/newsInfo/:id', component: newsInfo }, // 新闻详情页  :id   获取id值
+ 
+  { path: '/homepage/photolist', component: photoList }, // 图片资讯组件
+  { path: '/homepage/photolist/photoListInfo/:id', component: photoListInfo }, // 图片详情 
+  
   { path: '/member', component: member },
   { path: '/shopcart', component: shopCart },
   { path: '/search', component: search }

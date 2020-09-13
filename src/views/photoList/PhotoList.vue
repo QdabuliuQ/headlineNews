@@ -38,11 +38,9 @@
     v-show="photoListContent.length !== 0" 
     class="photoContent"
     ref="photo">
-        <photo-list-item
-        
+        <photo-list-item      
         :photoListContent="photoListContent"
         @photoLoad="photoLoad"></photo-list-item>
-        
     </bscroll>
     <div class="noPhoto" v-show="photoListContent.length === 0">
         没有更多内容了:(
@@ -108,14 +106,14 @@ export default {
         getPhotoListTitle().then(res => {
             // 保存数据
             this.navItemTitle = res.data.message
+            // console.log(this.navItemTitle);
             // 由于数据中没有 全部 分类，需要手动添加
             this.navItemTitle.unshift({id: 0, title: '全部'})
         }),
 
-        // 获取数据id
+        // 获取图片列表数据
         getPhotoListPic(this.navTitleId).then(res => {
             this.photoListContent = res.data.message;
-            console.log(this.photoListContent);
         })
     },
     mounted () {

@@ -80,25 +80,6 @@ export default {
   },
   created() {
     this.MgetComments(this.pIndex);   // 获取评论数据
-    // 定时器
-    // this.timer = setInterval(() => {
-    //     this.index ++;
-    //     // 判断是否 index 到 30
-    //     if(this.commentArr.length !== 0){
-    //         if (this.index > 20) {
-    //           // 计算滚动高度
-    //           this.$refs.bsItem.scroll.refresh();
-    //           // 清除定时器
-    //           clearInterval(this.timer)
-    //           this.index = 0
-    //         }
-    //     }
-    // },100)
-  },
-  mounted () {
-    // this.$nextTick(() => {
-    //   console.log(this.$refs.bsComment);
-    // })
   },
   update () {
     this.$refs.bsComment.scroll.refresh()
@@ -106,10 +87,6 @@ export default {
 };
 </script>
 <style scoped>
-.bsItem {
-    /* height: 100%;
-    position: relative; */
-}
 .CommentList {
   position: relative;
   overflow: hidden;

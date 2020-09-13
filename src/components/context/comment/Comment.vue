@@ -1,13 +1,6 @@
 <template>
   <div class="Comment">
       <div class="commentText" ref="box">
-          <!-- <textarea
-           class="textBox"
-           placeholder="发表评论吧~"
-           @focus="commentChange"
-           @blur="commentBlur"
-           v-model="commentsText"
-           :class="{changeBorder : changeShow}"></textarea> -->
            <input type="text"
            class="textBox"
            placeholder="发表评论吧~"
@@ -61,7 +54,6 @@ export default {
     },
     mounted () {
         this.$nextTick(() => {
-            console.log(this.$refs.box);
         })
         // this.$refs.bsItem.scroll.refresh();
     }
@@ -88,7 +80,7 @@ export default {
     .textBox{
         font-size: 14px;
         width: 100%;
-        height: 100%;
+        height: 32px;
         border: 1px solid #cdcdcd;
         /* border: 1px solid var(--bgc); */
         resize: none;

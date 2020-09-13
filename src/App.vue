@@ -53,6 +53,7 @@ export default {
   * { touch-action: pan-y; }
   @import '~assets/css/base.css';
   #app{
+    overflow-x: hidden;
     width: 100%;
   }
   .apptabbar{

@@ -3,6 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 移动端300ms延迟
+import fastClick from 'fastclick'
+// 调用 attach 方法 作用于 body 上
+fastClick.attach(document.body)
+
+
 // 引入 mui 基本css样式
 import 'assets/mui/css/mui.css'
 
@@ -34,6 +40,10 @@ Vue.filter('getTime',function(date,pattern="YYYY-MM-DD  HH:MM:SS"){
   // 调用 format 格式化时间
   return moment(date).format(pattern)
 })
+
+// 引入缩略图插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 
 // 引入 toast 组件
