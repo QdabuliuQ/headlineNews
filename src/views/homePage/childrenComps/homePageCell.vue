@@ -13,7 +13,7 @@
           </div>
           <span>视频专区</span> 
       </div>
-      <div class="cellItem">
+      <div class="cellItem" @click="goodslist">
           <div>
               <img class="shop" src="~assets/img/homePageImg/shangcheng.png" alt="">
           </div>
@@ -52,6 +52,10 @@ export default {
         // 图片组件路由跳转
         photo(){
             this.$router.push('/homepage/photolist')
+        },
+
+        goodslist(){
+            this.$router.push('/homepage/goodslist')
         }
     }
 }

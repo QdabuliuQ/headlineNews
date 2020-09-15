@@ -11,6 +11,8 @@ const newsList = () => import('views/newsList/NewsList')  // 新闻组件
 const newsInfo = () => import('views/newsList/childrenComps/NewsInfo')  // 新闻详情组件
 const photoList = () => import('views/photoList/PhotoList')  // 图片资讯组件
 const photoListInfo = () => import('views/photoList/childrenComps/PhotoListInfo') // 图片详情组件
+const goodsList = () => import('views/goodsList/GoodsList')   // 商城组件
+const goodsListInfo = () => import('views/goodsList/childrenComps/GoodsListInfo') // 商品详情组件
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,9 @@ const routes = [
  
   { path: '/homepage/photolist', component: photoList }, // 图片资讯组件
   { path: '/homepage/photolist/photoListInfo/:id', component: photoListInfo }, // 图片详情 
+
+  { path: '/homepage/goodslist', component: goodsList },  // 商城组件
+  { path: '/homepage/goodslist/goodsListInfo/:id', component: goodsListInfo },  // 商品详情组件
   
   { path: '/member', component: member },
   { path: '/shopcart', component: shopCart },

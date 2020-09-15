@@ -19,8 +19,7 @@
                 <div 
                 class="mui-scroll"
                  style="height: 30px; line-height: 30px">
-                    <a
-                     v-for="(item,index) in navItemTitle"
+                    <a v-for="(item,index) in navItemTitle"
                      :key="index"
                      @click="tabClick(item.id)"
                      style="fontSize: 14px; height: 100%; line-height: 30px"

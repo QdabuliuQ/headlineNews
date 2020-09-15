@@ -41,7 +41,7 @@ export default {
         color: #fff;
         top: 50%;
         left: 50%;
-        z-index: 20;
+        z-index: 201;
         background-color: rgba(0,0,0,0.6);
         animation: toastA 2s linear;
     }

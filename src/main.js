@@ -26,10 +26,19 @@ Vue.use(VueLazyLoad,{
 // npm install vant --save 安装 vant 组件库
 // 引入 轮播图 组件
 import { Swipe, SwipeItem } from 'vant';
+import { Checkbox, CheckboxGroup } from 'vant';  // 复选框
+import { SwipeCell } from 'vant';   // 滑块
+import { Button } from 'vant';
+
+
 // 引入css样式
 import 'vant/lib/index.css';
 Vue.use(Swipe)  // 安装组件
 Vue.use(SwipeItem)
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(SwipeCell);
+Vue.use(Button);
 
 
 // 格式化事件插件

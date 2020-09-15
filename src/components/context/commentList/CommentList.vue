@@ -34,7 +34,7 @@
 import navbar from "components/common/navbar/navbar"; // 顶部导航栏组件
 import Comment from "components/context/comment/Comment"; // 评论组件
 
-import bscroll from "components/common/bscroll/Bscroll";
+import bscroll from "components/common/bscroll/Bscroll";  // 滚动组件
 
 import { getComments } from "network/newsList"; // 评论信息组件
 
@@ -73,6 +73,18 @@ export default {
       // this.MgetComments(this.$route.params.id)
     }
   },
+  computed: {
+    commentArrCom: function(){
+      return this.commentArr
+    }
+  },
+  watch: {
+    commentArrCom(){
+      setTimeout(() => {
+        this.$refs.bsComment.scroll.refresh()
+      },300)
+    }
+  },
   components: {
     navbar,
     Comment,
@@ -82,7 +94,7 @@ export default {
     this.MgetComments(this.pIndex);   // 获取评论数据
   },
   update () {
-    this.$refs.bsComment.scroll.refresh()
+    
   }
 };
 </script>

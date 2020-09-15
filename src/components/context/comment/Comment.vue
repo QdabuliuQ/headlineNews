@@ -85,7 +85,7 @@ export default {
         /* border: 1px solid var(--bgc); */
         resize: none;
         line-height: 32px;
-        text-indent: 1em;
+        text-indent: 0.5em;
         border-top-left-radius: 32px;
         border-bottom-left-radius: 32px;
         overflow-y: hidden;

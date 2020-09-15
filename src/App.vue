@@ -20,7 +20,7 @@
         <img slot="item-icon-active" src="~assets/img/tabbarImg/huiyuanactive.png" alt="">
         <div class="item-text" slot="item-text">会员</div>
       </tabbaritem>
-      <tabbaritem path="shopcart" activeColor='#1296db'>
+      <tabbaritem path="/shopcart" activeColor='#1296db'>
         <img slot="item-icon" src="~assets/img/tabbarImg/wg.png" alt="">
         <img slot="item-icon-active" src="~assets/img/tabbarImg/wgactive.png" alt="">
         <div class="item-text" slot="item-text">购物车</div>
