@@ -2,12 +2,13 @@
   <div id="app">
     <!-- 路由占位符 -->
     <!-- keep-alive 路由占位符区域不会被销毁 -->
-    <keep-alive>
-      <!-- 在组件切换的时候添加动画 -->
-      <transition mode="">
-        <router-view></router-view>
-      </transition>
-    </keep-alive>
+    <transition mode="">
+      <!-- exclude 不会保存对应的组件 -->
+      <keep-alive exclude="GoodsListInfo">
+        <!-- 在组件切换的时候添加动画 -->
+          <router-view></router-view>
+      </keep-alive>
+    </transition>
     <!-- 底部导航栏 -->
     <tabbar class="apptabbar">
       <tabbaritem path="/homepage" activeColor='#1296db'>

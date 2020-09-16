@@ -55,13 +55,11 @@ export default {
         // 轮播图数据
         getGoodsListSwiper(this.goodsId).then(res => {
             this.goodsSwiperImg = res.data.message
-            console.log(this.goodsSwiperImg);
         })
 
         // 商品详情数据
         getGoodsInfo(this.goodsId).then(res => {
             this.goodsInfoContent = res.data.message[0]
-            console.log(this.goodsInfoContent);
         })
     },
     components: {

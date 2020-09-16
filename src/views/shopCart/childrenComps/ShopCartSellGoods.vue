@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'ShopCartSellGoods',
     data () {

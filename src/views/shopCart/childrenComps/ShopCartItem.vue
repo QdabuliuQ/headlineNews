@@ -1,33 +1,5 @@
 <template>
   <div class="ShopCartItem">
-      <!-- <div class="item" v-for="(item,index) in goodsListShopCart" :key="index">
-        <div class="left">
-            <van-checkbox class="checkboxs" @click="check(item.checked)" v-model="item.checked"></van-checkbox>
-        </div>
-        <div class="center">
-            <div class="goodsImg">
-                <img :src="item.img[0].src" alt="">
-            </div>
-        </div>
-        <div class="right">
-            <div class="goodsInfo">
-                <div class="title">{{item.title}}</div>
-                <div class="info">
-                    商品货号：{{item.id}}
-                    <br>
-                    商品库存：{{item.stock_quantity - 1}}
-                </div>
-                <div class="goodsPrice">
-                    <span class="price">￥{{item.price}}</span>
-                    <div class="stepper">
-                        <div class="reduce" @click="reduce(item)">-</div>
-                        <input class="num" type="text" :value="item.count">
-                        <div class="add" @click="add(item)">+</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div> -->
       <van-swipe-cell class="swipercell" v-for="(item,index) in goodsListShopCart" :key="index">
         <div class="item">
             <div class="left">
@@ -58,7 +30,7 @@
             </div>
         </div>
         <template #right>
-            <van-button @click="moreGoods(index)" square text="删除" type="danger" class="delete-button" />
+            <van-button @click="delGoods(index)" square text="删除" type="danger" class="delete-button" />
         </template>
       </van-swipe-cell>
   </div>
@@ -105,14 +77,13 @@ export default {
             }
         },
 
-        moreGoods(index){
+        // 移出商品
+        delGoods(index){
             this.$store.state.cartList.splice(index,1)
-            console.log(index);
         }
     },
     created () {
         this.goodsListShopCart = this.$store.state.cartList
-        console.log(this.goodsListShopCart);
     }
 }
 

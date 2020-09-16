@@ -47,9 +47,6 @@ export default {
             })
         }
     },
-    mounted () {
-        console.log(this.img);
-    },
     props: ['goodsSwiperImg','goodsInfoContent']
 }
 
