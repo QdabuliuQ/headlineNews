@@ -6,13 +6,9 @@
       </div>
       <div slot="center">{{commentArr.length}}条评论</div>
     </navbar> 
-    <bscroll 
-    ref="bsComment"
-    class="itemContent"
-    :probeType="3"
-    :pullup="true"
-    :pullUpLoad="true"
-    @scrollToEnd="scrollToEnd">
+    <muiScroll 
+    style="top: 34px; bottom: 38px"
+    :scrollY="true">
       <div class="bsItem" v-if="commentArr.length !== 0">
         <div class="commentItem" v-for="(item,index) in commentArr" :key="index">
           <div class="useName">
@@ -23,7 +19,7 @@
         </div>
       </div>
       <div class="noComment" v-else>没有更多评论了:(</div>
-    </bscroll>
+    </muiScroll>
     <comment 
     class="comment"
     :commentArr="commentArr"></comment>
@@ -34,7 +30,7 @@
 import navbar from "components/common/navbar/navbar"; // 顶部导航栏组件
 import Comment from "components/context/comment/Comment"; // 评论组件
 
-import bscroll from "components/common/bscroll/Bscroll";  // 滚动组件
+import muiScroll from 'components/common/muiScroll/MuiScroll'  // mui滚动组件
 
 import { getComments } from "network/newsList"; // 评论信息组件
 
@@ -63,32 +59,21 @@ export default {
         // 判断是否有 评论 数据
         if (res.data.message.length !== 0) {
           this.commentArr = res.data.message;
-          console.log(this.commentArr);
           // pageIndex 自增 获取下一页的数据
           pageIndex++;
         }
       });
     },
-    scrollToEnd(){
-      // this.MgetComments(this.$route.params.id)
-    }
   },
   computed: {
     commentArrCom: function(){
       return this.commentArr
     }
   },
-  watch: {
-    commentArrCom(){
-      setTimeout(() => {
-        this.$refs.bsComment.scroll.refresh()
-      },300)
-    }
-  },
   components: {
     navbar,
     Comment,
-    bscroll,
+    muiScroll
   },
   created() {
     this.MgetComments(this.pIndex);   // 获取评论数据
@@ -124,7 +109,7 @@ export default {
 }
 .useName {
   padding: 8px 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .useName span {
   font-weight: 550;

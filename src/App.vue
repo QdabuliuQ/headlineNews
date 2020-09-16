@@ -4,7 +4,7 @@
     <!-- keep-alive 路由占位符区域不会被销毁 -->
     <transition mode="">
       <!-- exclude 不会保存对应的组件 -->
-      <keep-alive exclude="GoodsListInfo">
+      <keep-alive exclude="GoodsListInfo,NewsInfo">
         <!-- 在组件切换的时候添加动画 -->
           <router-view></router-view>
       </keep-alive>

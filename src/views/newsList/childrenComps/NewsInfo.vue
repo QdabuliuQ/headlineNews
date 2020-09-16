@@ -142,7 +142,7 @@ export default {
   border-bottom: 1px solid #d1d1d3;
   padding-bottom: 10px;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 15px; 
 }
 .newsScroll {
   overflow: hidden;

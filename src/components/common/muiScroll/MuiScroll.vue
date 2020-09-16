@@ -56,6 +56,7 @@ export default {
     // console.log(this.muiscroll.scroll);
     this.muiscroll.scrollTo(0,0)
 
+    // 监听滚动
     var scroll = mui('.mui-scroll-wrapper').scroll();
     document.querySelector('.mui-scroll-wrapper').addEventListener('scroll',e => {
         // 事件传递
@@ -64,5 +65,6 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
+  *{ touch-action: none }
 </style>
