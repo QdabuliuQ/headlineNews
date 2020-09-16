@@ -25,9 +25,14 @@
       </div>
     </bscroll>
     <!-- 评论组件遮罩层 -->
-    <div v-show="commentShow" class="box"></div>
+    <div v-show="commentShow" @click="close" class="box"></div>
     <!-- 评论组件 -->
-    <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter">
+    <transition 
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter" 
+    v-on:after-enter="afterEnter"
+    v-on:before-leave="beforeLeave"
+    v-on:leave="leave">
       <comment-list :pIndex="id" v-show="commentShow" class="comment-list" @close="close"></comment-list>
     </transition>
   </div>
@@ -86,7 +91,18 @@ export default {
       el.style.transition = "all 0.3s linear";
       // done()
     },
-    afterEnter(el, done) {},
+    afterEnter(el, done) {
+    },
+
+    beforeLeave(el) {
+      el.style.transform = "translateY(350px)"
+    },
+
+    leave(el, done) {
+      el.offsetWidth;
+      el.style.transform = "tramslateY(0)";
+      el.style.transition = "all 0.5s linear"
+    },
   },
   created() {
     // 新闻内容请求
